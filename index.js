@@ -31,9 +31,10 @@ Calculator.divide = function(num1, num2) {
 }
 
 const actionApplyer = function(baseInteger, arrayOfFunctions) {
-  if (arrayOfFunctions.length === 0) {
-    return baseInteger;
-  } else {
-    return 4;
+  let start = baseInteger;
+
+  for (let i = 0; i < arrayOfFunctions.length; i++) {
+    start = arrayOfFunctions[i](start)
   }
+  return start;
 }
