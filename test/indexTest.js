@@ -50,6 +50,7 @@ describe("index.js", () => {
       expect(Calculator).to.be.a('object')
     })
 
+    
     describe("that has a function called add", function() {
       it("Calculator.add exists", function() {
         expect(Calculator.add).to.exist
