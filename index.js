@@ -56,7 +56,7 @@ function actionApplyer(startingInteger, array) {
       newInteger = element(newInteger);
     });
     return(newInteger);
-  }
+  };
 };
 
 // let actionApplyer = function(start, ray) {
