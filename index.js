@@ -36,12 +36,17 @@ function actionApplyer(number, arrayOfTransforms){
     return number
   } else {
 
+     arrayOfTransforms.forEach(element =>
+        number = element(number))
+        return number
+
+/*
       digit1 = arrayOfTransforms[0](number)
       digit2 = arrayOfTransforms[1](digit1)
       digit3 = arrayOfTransforms[2](digit2)
       return digit3
 
-/*
+
 for(let i = 0; i< arr.length; i++) {
 
     int = arr[i](int)
