@@ -18,9 +18,16 @@ function mondayWork(doSomething = "go to the office"){
   return `This Monday, I will ${doSomething}.`
 }
 
-function wrapAdjective(string){
+function wrapAdjective(symbol){
+  
+  if (symbol === '*'){
+    return (function(adj){return `You are *${adj}*!`;})
+  } else if (symbol === '||') {
+    return (function(adj){return `You are ||${adj}||`;})
+  }
   
 }
+
 
 function actionApplyer(startInt, arrayFcns){
   
