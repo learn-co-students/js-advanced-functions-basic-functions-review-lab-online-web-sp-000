@@ -25,6 +25,7 @@ function wrapAdjective(symbol){
   if (symbol === '||' || symbol === '*') {
     return (function(adj){return `You are ${symbol}${adj}${symbol}!`;});
   }
+  console.log("'*' not recognized.");
   
 }
 
