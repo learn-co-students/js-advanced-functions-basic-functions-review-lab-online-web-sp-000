@@ -16,10 +16,9 @@
 
 // wrapAdjective()
     function wrapAdjective(flair= "*") {
-        let innerFunction = function (variable = "special") {
+        return function (variable = "special") {
             return (`You are ${flair}${variable}${flair}!`)
          }
-        return innerFunction
     }
 
     wrapAdjective();
