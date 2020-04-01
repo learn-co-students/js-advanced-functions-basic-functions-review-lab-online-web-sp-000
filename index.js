@@ -25,17 +25,27 @@
     wrapAdjective();
 
 // Calculator
-    const Calculator = new Object();
-    Calculator.add = function() {return 1 + 3;}
-    Calculator.subtract = function() {return 1 - 3;}
-    Calculator.multiply = function() {return 1 * 3;}
-    Calculator.divide = function() { return 10 / 5;}
+    const Calculator = {
+        add: function(a, b) {
+            return a + b;
+        },
+        subtract: function(a, b) {
+            return a - b;
+        },
+        multiply: function(a, b) {
+            return a * b;
+        },
+        divide: function(a, b) {
+            return a / b;
+        }
+    }
 
 // actionApplyer
-    function actionApplyer(startingInteger, array) {
-        if (array === undefined || array.length === 0) {
-            return startingInteger;
-        } else {
-           return array.reduce((previousResult, fn) => fn(previousResult), startingInteger);
+    function actionApplyer(start, array) {
+        let a = start
+
+        for (let i = 0; i < array.length; i++) {
+            a = array[i](a)
         }
+        return a
     }
