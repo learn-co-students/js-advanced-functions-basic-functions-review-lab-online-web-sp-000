@@ -9,7 +9,7 @@
     defines mondayWork function expression as specified
       4) function exists
       5) uses the default activity 'go to the office' when no arguments are passed
-      !6) permits the default activity to be overriden
+      6) permits the default activity to be overriden
     defines wrapAdjective function according to the specification
       7) function exists
       8) when initialized with '*' creates a function that, when called, wraps an adjective in a highlight
@@ -33,41 +33,18 @@
       receives two arguments: a starting integer and an array of functions
         20) returns the given starting point, unchanged, when the array is empty
         21) Given 13, returns 4 after being acted on by several functions*/
-        
+
+
         function saturdayFun(activity='roller-skate') {
             return `This Saturday, I want to ${activity}!`
         }
-
-        let mondayWork = function(activity="go to the office") {
-  return `This Monday, I will ${activity}.`
-}
-
-let wrapAdjective = function(style="*") {
-  return function(adjective="special") {
-    return `You are ${style}${adjective}${style}!`
+        
+function outer(greeting, msg="It's a fine day to learn") { // 2
+  let innerFunction =  function(name, lang="Python") { // 3
+    return `${greeting}, ${name}! ${msg} ${lang}` // 4
   }
+  return innerFunction("student", "JavaScript") // 5
 }
-const Calculator = {
-  add: function(a,b) {
-    return a + b;
-  },
-  subtract: function(a,b) {
-    return a - b
-  },
-  multiply: function(a,b) {
-    return a * b
-  },
-  divide: function(a,b) {
-    return a / b;
-  }
-}
-
-        let actionApplyer = function(start, ray) {
-  let a = start
-
-  for (let i = 0; i < ray.length; i++ ){
-    a = ray[i](a)
-  }
-
-  return a
-}
+ 
+outer("Hello") // 1
+//=> "Hello, student! It's a fine day to learn JavaScript"
