@@ -25,10 +25,8 @@ function actionApplyer(startingInt, arrayFunc) {
     }
     else { 
         let result = startingInt
-        let i = 0;
-        while (i < arrayFunc.length) {
+        for (let i = 0; i < arrayFunc.length; i++ ){
             result = arrayFunc[i](result)
-            i++
         }
         return result;
     }
