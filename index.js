@@ -20,14 +20,9 @@ let Calculator = {
 };
 
 function actionApplyer(startingInt, arrayFunc) {
-    if (arrayFunc.length === 0) {
-        return startingInt
+    let result = startingInt
+    for (let i = 0; i < arrayFunc.length; i++ ){
+        result = arrayFunc[i](result)
     }
-    else { 
-        let result = startingInt
-        for (let i = 0; i < arrayFunc.length; i++ ){
-            result = arrayFunc[i](result)
-        }
-        return result;
-    }
+    return result;
 }
