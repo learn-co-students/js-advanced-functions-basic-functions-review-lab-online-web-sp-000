@@ -31,7 +31,7 @@ describe("index.js", () => {
     it("function exists", function() {
       expect(wrapAdjective).to.exist
     })
-    
+
     it("when initialized with '*' creates a function that, when called, wraps an adjective in a highlight", function() {
       let result = wrapAdjective()
       let emphatic = result("a hard worker")
@@ -104,9 +104,9 @@ describe("index.js", () => {
       it("Given 13, returns 4 after being acted on by several functions", function() {
         let message = "13, multiplied by 2, added to 1000 and then modulo 7 is 4. Apply each function in the Array of functions on the given base (13) OR on the result of the use of the previous function to get this result"
         arrayOfTransforms = [
-          function(a){ return a * 2 },
-          function(a){ return a + 1000},
-          function(a){ return a % 7 }
+          function(a){ return a * 2 }, 0 [i]
+          function(a){ return a + 1000}, 1 [i]
+          function(a){ return a % 7 } 2 [i]
         ]
         expect(actionApplyer(13, arrayOfTransforms)).to.equal(4, message)
       })
