@@ -28,3 +28,14 @@ const Calculator = {
         return a / b
     }
 }
+
+function actionApplyer(n, functionArray) {
+    if (functionArray.length === 0) {
+        return n
+    } else {
+        let start = functionArray[0]
+        let result = start(n)
+        return actionApplyer(result, functionArray.slice(1))
+    }
+
+}
