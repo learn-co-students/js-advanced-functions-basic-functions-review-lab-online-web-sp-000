@@ -29,7 +29,10 @@ let Calculator = {
 }
 
 function actionApplyer (start, array) {
-    // if array === []
-    //     return start
+    for(let i = 0; i < array.length; i++) {
+        array[i](start)
+        //I am calling the functions above ^
+      }
+    start
 }
 
