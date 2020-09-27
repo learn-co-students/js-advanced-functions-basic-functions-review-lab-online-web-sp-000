@@ -36,7 +36,6 @@ function actionApplyer(start, functions){
   if (functions.length == 0){
     return start
   }else{
-    console.log(`${start}, multiplied by 2, added to 1000 and then modulo 7 is ${functions.add(functions.multiply(start, 2), 1000) % 7}. Apply each function in the Array of functions on the given base (${start}) OR on the result of the use of the previous function to get this result`)
-    return `${start}, multiplied by 2, added to 1000 and then modulo 7 is ${functions.add(functions.multiply(start, 2), 1000) % 7}. Apply each function in the Array of functions on the given base (${start}) OR on the result of the use of the previous function to get this result`
+    return functions[2]((functions[1](functions[0](start))))
   }
 }
