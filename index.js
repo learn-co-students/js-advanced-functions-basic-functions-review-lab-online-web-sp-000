@@ -6,8 +6,13 @@ let mondayWork = function(activity = "go to the office") {
     return(`This Monday, I will ${activity}.`);
 }
 
-function wrapAdjective() {
+function wrapAdjective(value = "*") {
     let innerFunction = function(adjective = "special") {
-        return `You are ${adjective}!`
+        return `You are ${value}${adjective}${value}!`
     }
+    return innerFunction
 }
+
+
+
+
