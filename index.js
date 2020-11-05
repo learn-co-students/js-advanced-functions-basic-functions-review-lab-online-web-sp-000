@@ -27,7 +27,13 @@ let Calculator = {
     return 10 / 5;
   }
 };
-//
-// function actionApplyer(start, array) {
-//
-// };
+
+let actionApplyer = function(start, array) {
+  let a = start
+
+  for (let i = 0; i < array.length; i++ ){
+    a = array[i](a)
+  }
+
+  return a
+}
