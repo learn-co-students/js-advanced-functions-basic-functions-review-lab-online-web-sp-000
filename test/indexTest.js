@@ -110,6 +110,8 @@ describe("index.js", () => {
         ]
         expect(actionApplyer(13, arrayOfTransforms)).to.equal(4, message)
       })
+
+      
     })
 
 
