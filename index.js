@@ -22,10 +22,6 @@ Calculator.subtract = function subtract(a, b) {return a-b}
 Calculator.multiply = function multiply(a, b) {return a*b}
 Calculator.divide = function divide(a, b) {return a/b}
 
-// 13 * 2 = 26
-// 26 + 1000 = 1026
-// 1026 % 7 = 4
-
 function actionApplyer(integer, array) {
   if (array.length != 0) {
     let num = integer;
