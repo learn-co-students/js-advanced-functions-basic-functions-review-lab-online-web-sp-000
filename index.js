@@ -21,21 +21,14 @@ var Calculator = {
 
 };
 
-// Calculator.add(a, b) = function(num1, num2) {num1 + num2};
-
-//     function subtract() {
-
-//     }
-// ;
-
 function actionApplyer(start, set) {
-    if (set == []) {
-        return start
+    if (!set.length) {
+        return start;
     } else {
-        let result = start
-        return function() {
-            result = set[0];
+        let result = start;
+        for (let i = 0; i < set.length; i++) {
+            result = set[i](result);
         }
-        // return result
+        return result;
     }
 }
