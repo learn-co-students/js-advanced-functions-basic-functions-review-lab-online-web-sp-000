@@ -29,7 +29,7 @@ var Calculator = {
 // ;
 
 function actionApplyer(start, set) {
-    if (set === []) {
+    if (set == []) {
         return start
     } else {
         let result = start
