@@ -361,7 +361,7 @@ function(name, lang="Python") { // The "inner" function
 }
 ```
 
-We invoked this returned _"inner" function"_ by adding the second set of
+We invoked this returned _inner function_ by adding the second set of
 parentheses and passing the arguments `"student"` and `"JavaScript"`, which were
 stored in `name` and `lang`. This filled in the final two values inside of the
 template string and returned:
