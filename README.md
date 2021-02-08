@@ -8,7 +8,6 @@
 - Define `anonymous function`
 - Define a function using a function expression
 - Define an IIFE: `Instantly-Invoked Function Expression`
-- Define `function-level scope`
 - Define `scope chain`
 - Define `closure`
 
@@ -244,20 +243,46 @@ opening up a micro-dimension, a bubble-universe, doing all the work you could
 ever want to do there, and then closing the space-time rift. We'll see some of
 the practical power of "hiding things" in IIFEs a little later in this lesson.
 
-## Define `Function-Level Scope`
+## Define `Scope Chain`
 
-JavaScript exhibits "function-level" scope. This means that if a function is
-defined _inside another_ function, the inner function has access to all the
-parameters of, as well as any variables defined in, the outer function. This
+Recall that JavaScript exhibits "function-level" scope. This means that any
+variable defined inside a function — either as a parameter or using a variable
+declaration — is only available inside that function. Thanks to the _scope
+chain_, however, if a function is defined _inside_ another function, the inner
+function has access to all the variables belonging to the outer function. This
 works recursively: if we nest a third function inside the inner function, it
 will have access to all the variables of both the inner and outer enclosing
-functions. Each of the enclosing parents' scopes are made available via the
-_scope chain_. We will define the scope chain a bit later in this lesson. Let's
-start by seeing it in action.
+functions. It does not work in the other direction, however: functions do not
+have access to variables defined in any functions nested inside them.
 
-> **ASIDE**: This is where people **really** start to get awed by JavaScript.
+The way the scope chain works is, when a variable is used, the JavaScript engine
+will first look for its value inside the current scope. If it doesn't find it
+there, it will work its way up the chain, checking each successive enclosing
+scope until it either finds the variable's value or reaches the global scope.
 
-Consider this code:
+Here's a simple example:
+
+```js
+function demoChain(name) {
+  const part1 = 'hi'
+  return function() {
+    const part2 = 'there'
+    return function() { 
+      console.log(`${part1.toUpperCase()} ${part2} ${name}`);
+    }
+  }
+}
+
+demoChain("Dr. Stephen Strange")()() //=> HI there Dr. Stephen Strange
+```
+
+When the innermost function is called, the JavaScript engine works its way up
+the scope chain to find the variables it's using. It finds `part2` in the
+enclosing parent function, and `name` and `part1` in _its_ parent function. As a
+result, when the `console.log()` statement is run, the string includes all three
+values. That's awesome wormhole, space-time magic!
+
+Let's work through a more complex example:
 
 ```js
 function outer(greeting, msg="It's a fine day to learn") { // 2
@@ -288,7 +313,7 @@ Let's break this down:
    get stored in `innerFunction`'s `name` and `lang` parameters.
 
 This might look a little bit weird, but it generally makes sense to our
-intuition about scopes: inner things can see their parent outer things. 
+intuition about scopes: inner things can see their parent outer things.
 
 Note that currently, the values of the arguments being passed to `innerFunction`
 are part of the **definition** of `outer`. In order to change those values we
@@ -423,31 +448,6 @@ The `answer` and `theBase` functions are **closures**; they have access to the
 `base` variable because it's defined in their parent function. When they're
 executed, they "let out" the values of the sum and the original base number,
 allowing us to see them.
-
-## Define `Scope Chain`
-
-The mechanism behind all the cool stuff we just saw is the _scope chain_ which
-allows functions defined inside functions (inside functions) to access all their
-parent (and grandparent) scopes' variables. Here's a simple example:
-
-```js
-function demoChain(name) {
-  const part1 = 'hi'
-  return function() {
-    const part2 = 'there'
-    return function() { 
-      console.log(`${part1.toUpperCase()} ${part2} ${name}`);
-    }
-  }
-}
-
-demoChain("Dr. Stephen Strange")()() //=> HI there Dr. Stephen Strange
-```
-
-When it is called, the innermost function has access to `name`, `part1`, and
-`part2` through the _scope chain_. As a result, when the `console.log()`
-statement is run, the string includes all three values. That's awesome wormhole,
-space-time magic!
 
 **LAB**:
 
