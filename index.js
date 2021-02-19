@@ -18,27 +18,28 @@ function wrapAdjective(flair = "*"){
 }
 
 let Calculator = {
-    add: (function (){
-        return 1 + 3
+    add: (function (a, b){
+        return a + b
     }), 
-    subtract: (function (){
-        return 1 - 3
+    subtract: (function (a, b){
+        return a - b
     }), 
-    multiply: (function (){
-        return 1 * 3
+    multiply: (function (a, b){
+        return a * b
     }), 
-    divide: (function (){
-        return 10/5
+    divide: (function (a, b){
+        return a/b
     })
 };
 
 
 function actionApplyer(start, array){
-    if (array === undefined || array.length ===0){
-        return start
-    } else {
-        return 4
+    let a = start
+    for (let i = 0; i <array.length; i++){
+        a = array[i](a)
     }
+
+    return a
 
 
 }
