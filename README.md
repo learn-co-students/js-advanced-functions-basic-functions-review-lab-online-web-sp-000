@@ -67,6 +67,7 @@ razzle(); //=> Billy razzle-dazzles 'em!
 razzle("Methuselah", "T'challah"); //=> Methuselah razzle-dazzles T'challah!
 ```
 
+
 **LAB**: Implement a function called `saturdayFun`. It should return a `String`
 like `"This Saturday, I want to ....!"` Fill in the `...` with the activity
 that's passed in as the first parameter. If nothing is passed in, default to
